@@ -38,7 +38,12 @@ export class PriceListsComponent implements OnInit {
         let sorted = uberResponse.prices.sort((x, y) => { return x.low_estimate - y.low_estimate });
         this.uberPrices = sorted;
         console.log('Uber success!', uberResponse);
+      }, error => {
+        console.log(error);
       });
+    }, error => {
+      alert('Error geocoding!');
+      console.log(error);
     });
 
   }
