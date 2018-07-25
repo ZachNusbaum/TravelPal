@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Trip } from './../trip';
 
 @Component({
   selector: 'app-ride-share-form',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ride-share-form.component.css']
 })
 export class RideShareFormComponent implements OnInit {
+  model = new Trip();
+  submitted = false;
+
+  onSubmit() {
+    return false;
+  }
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.model);
   }
 
 }
