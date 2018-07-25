@@ -12,6 +12,7 @@ import { RideShareComparisonComponent } from './ride-share-comparison/ride-share
 import { RideShareFormComponent } from './ride-share-form/ride-share-form.component';
 import { PriceListsComponent } from './price-lists/price-lists.component';
 import { UberService } from './uber.service';
+import { UberPricesComponent } from './uber-prices/uber-prices.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UberService } from './uber.service';
     RideShareComparisonComponent,
     RideShareFormComponent,
     PriceListsComponent,
+    UberPricesComponent,
   ],
   imports: [
     BrowserModule,

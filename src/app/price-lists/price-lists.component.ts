@@ -1,5 +1,6 @@
 import { GeocodingService } from './../geocoding.service';
 import { Component, OnInit } from '@angular/core';
+import { UberService } from '../uber.service';
 
 @Component({
   selector: 'app-price-lists',
@@ -8,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PriceListsComponent implements OnInit {
   loading;
+
   geocoded = false;
   coords1;
   coords2;
+  uberLoading = true;
+  uberPrices;
 
-  constructor(private geocoder: GeocodingService) { }
+  lyftLoading = true;
+  lyftPrices;
+
+  constructor(private geocoder: GeocodingService, private uber: UberService) { }
 
   ngOnInit() {
   }
@@ -20,12 +27,17 @@ export class PriceListsComponent implements OnInit {
   geocode(trip) {
     this.loading = true;
     console.log('Geocoding...', trip);
-    this.geocoder.geocodeTrip(trip).subscribe(response => {
+    this.geocoder.geocodeTrip(trip).subscribe((response: any) => {
       console.log('coords', response);
-      this.coords1 = response[0];
-      this.coords2 = response[1];
+      this.coords1 = response[0].results[0].geometry.location;
+      this.coords2 = response[1].results[0].geometry.location;
       this.loading = false;
       this.geocoded = true;
+      this.uber.getPrices(this.coords1, this.coords2).subscribe((uberResponse: any) => {
+        this.uberLoading = false;
+        this.uberPrices = uberResponse;
+        console.log('Uber success!', uberResponse);
+      });
     });
 
   }
