@@ -35,7 +35,8 @@ export class PriceListsComponent implements OnInit {
       this.geocoded = true;
       this.uber.getPrices(this.coords1, this.coords2).subscribe((uberResponse: any) => {
         this.uberLoading = false;
-        this.uberPrices = uberResponse;
+        let sorted = uberResponse.prices.sort((x, y) => { return x.low_estimate - y.low_estimate });
+        this.uberPrices = sorted;
         console.log('Uber success!', uberResponse);
       });
     });
