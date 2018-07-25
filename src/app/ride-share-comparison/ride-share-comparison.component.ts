@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ride-share-comparison.component.css']
 })
 export class RideShareComparisonComponent implements OnInit {
+  pricesReady: boolean;
 
   constructor() { }
 

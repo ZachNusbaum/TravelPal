@@ -1,4 +1,4 @@
-<form #rideShareForm="ngForm">
+<form (submit)="onSubmit()" #rideShareForm="ngForm">
   <div class="form-group">
     <label for="start">Starting Point</label>
     <input type="text" name="start" class="form-control" [(ngModel)]="model.start_address" required>

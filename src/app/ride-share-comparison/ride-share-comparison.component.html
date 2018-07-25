@@ -1,3 +1,4 @@
 <h1>Ride Share Comparison</h1>
 <p class="lead">Which is cheaper: Uber or Lyft?</p>
-<app-ride-share-form></app-ride-share-form>
+<app-ride-share-form (inputreceived)="priceLists.geocode($event)" #form></app-ride-share-form>
+<app-price-lists  #priceLists></app-price-lists>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Trip } from './../trip';
 
 @Component({
@@ -9,8 +9,12 @@ import { Trip } from './../trip';
 export class RideShareFormComponent implements OnInit {
   model = new Trip();
   submitted = false;
+  @Output() inputreceived = new EventEmitter<any>();
 
   onSubmit() {
+    alert('submitted');
+    this.inputreceived.emit(this.model);
+    this.submitted = true;
     return false;
   }
 
