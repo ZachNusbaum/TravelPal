@@ -1,7 +1,8 @@
+import { GeocodingService } from './geocoding.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +28,7 @@ import { UberService } from './uber.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent, UberService]
+  providers: [GeocodingService, UberService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

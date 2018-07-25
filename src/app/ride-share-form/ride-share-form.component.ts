@@ -12,7 +12,6 @@ export class RideShareFormComponent implements OnInit {
   @Output() inputreceived = new EventEmitter<any>();
 
   onSubmit() {
-    alert('submitted');
     this.inputreceived.emit(this.model);
     this.submitted = true;
     return false;

@@ -1,3 +1,7 @@
-<p>
-  price-lists works!
-</p>
+<p class="lead" *ngIf="!geocoded && !loading">Address not submitted</p>
+<p *ngIf="loading">Geocoding...</p>
+<div class="div" *ngIf="geocoded">
+    <p class="lead">Geocoded!</p>
+    <pre>{{coords1.results[0].geometry.location | json}}</pre>
+    <pre>{{coords2.results[0].geometry.location | json}}</pre>
+</div>
