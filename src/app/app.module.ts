@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RideShareComparisonComponent } from './ride-share-comparison/ride-share-comparison.component';
+import { RideShareFormComponent } from './ride-share-form/ride-share-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuBarComponent,
     HomepageComponent,
-    RideShareComparisonComponent
+    RideShareComparisonComponent,
+    RideShareFormComponent
   ],
   imports: [
     BrowserModule,
