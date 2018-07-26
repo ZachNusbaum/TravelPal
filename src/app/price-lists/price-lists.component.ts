@@ -26,6 +26,8 @@ export class PriceListsComponent implements OnInit {
 
   geocode(trip) {
     this.loading = true;
+    this.uberLoading = true;
+    this.lyftLoading = true;
     console.log('Geocoding...', trip);
     this.geocoder.geocodeTrip(trip).subscribe((response: any) => {
       console.log('coords', response);
