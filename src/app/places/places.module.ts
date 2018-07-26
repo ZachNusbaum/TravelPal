@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './../app-routing.module';
 import { GooglePlacesService } from './../google-places.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,8 @@ import { PlaceDetailComponent } from './place-detail/place-detail.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   declarations: [SearchFormComponent, PlacesPageComponent, ListComponent, PlaceDetailComponent],
   providers: [GooglePlacesService]
