@@ -19,6 +19,13 @@ export class RideShareFormComponent implements OnInit {
     return false;
   }
 
+  clearAddresses() {
+    window.localStorage.removeItem('start');
+    window.localStorage.removeItem('end');
+    document.forms[0].reset();
+    return false;
+  }
+
   constructor() { }
 
   ngOnInit() {
