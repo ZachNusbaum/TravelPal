@@ -9,7 +9,7 @@ export class SecondsPipe implements PipeTransform {
   transform(value: number, args?: any): any {
     const minutes = value / 60;
     const seconds = value % 60;
-    return `${minutes}m ${seconds}s`;
+    return `${Math.trunc(minutes)}m ${seconds}s`;
   }
 
 }

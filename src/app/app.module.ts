@@ -14,6 +14,7 @@ import { PriceListsComponent } from './price-lists/price-lists.component';
 import { UberService } from './uber.service';
 import { UberPricesComponent } from './uber-prices/uber-prices.component';
 import { SecondsPipe } from './seconds.pipe';
+import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SecondsPipe } from './seconds.pipe';
     PriceListsComponent,
     UberPricesComponent,
     SecondsPipe,
+    LyftPricesComponent,
   ],
   imports: [
     BrowserModule,

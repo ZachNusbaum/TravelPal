@@ -7,6 +7,10 @@
                 <p class="lead" *ngIf="uberLoading">Loading Uber Prices...</p>
                 <app-uber-prices [prices]="uberPrices" *ngIf="!uberLoading"></app-uber-prices>
             </div>
+            <div class="col-md-6">
+                <p class="lead" *ngIf="lyftLoading">Loading Lyft Prices...</p>
+                <app-lyft-prices [prices]="lyftPrices" *ngIf="!lyftLoading"></app-lyft-prices>
+            </div>
         </div>
     </div>
 </div>

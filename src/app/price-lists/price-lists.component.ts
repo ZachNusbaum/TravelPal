@@ -1,3 +1,4 @@
+import { LyftService } from './../lyft.service';
 import { LatLng } from './../lat-lng';
 import { GeocodingService } from './../geocoding.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class PriceListsComponent implements OnInit {
   lyftLoading = true;
   lyftPrices;
 
-  constructor(private geocoder: GeocodingService, private uber: UberService) { }
+  constructor(private geocoder: GeocodingService, private uber: UberService, private lyft: LyftService) { }
 
   ngOnInit() {
   }
@@ -50,6 +51,16 @@ export class PriceListsComponent implements OnInit {
         console.log('Uber success!', uberResponse);
       }, error => { // Handle error response from Uber API
         alert('Uber API Error');
+        console.log(error);
+      });
+
+      this.lyft.getEstimates(this.coords1, this.coords2).subscribe((lyftResponse: any) => {
+        this.lyftLoading = false;
+        let sorted = lyftResponse.cost_estimates.sort((x, y) => { x.estimated_cost_cents_min - y.estimated_cost_cents_min });
+        this.lyftPrices = sorted;
+        console.log('Lyft success!', this.lyftPrices);
+      }, error => {
+        alert('Lyft error!');
         console.log(error);
       });
     }, error => { // Handle error response from Google API.
