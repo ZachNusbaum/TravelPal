@@ -54,12 +54,14 @@ export class PriceListsComponent implements OnInit {
         console.log(error);
       });
 
+      // Send the geocoded addresses to the Lyft API and subscribe to the response.
       this.lyft.getEstimates(this.coords1, this.coords2).subscribe((lyftResponse: any) => {
-        this.lyftLoading = false;
+        this.lyftLoading = false; // Received the response from Lyft API
+        // Sort the response by lowest price estimate
         let sorted = lyftResponse.cost_estimates.sort((x, y) => { x.estimated_cost_cents_min - y.estimated_cost_cents_min });
-        this.lyftPrices = sorted;
+        this.lyftPrices = sorted; // Set the list of Lyft prices equal to the sorted response
         console.log('Lyft success!', this.lyftPrices);
-      }, error => {
+      }, error => { // Handle error response from Lyft API.
         alert('Lyft error!');
         console.log(error);
       });

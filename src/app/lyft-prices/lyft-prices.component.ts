@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./lyft-prices.component.css']
 })
 export class LyftPricesComponent implements OnInit {
+  // Accepts the list of services prices as input
   @Input() prices;
   constructor() { }
 
