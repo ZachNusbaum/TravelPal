@@ -16,6 +16,7 @@ import { UberService } from './uber.service';
 import { UberPricesComponent } from './uber-prices/uber-prices.component';
 import { SecondsPipe } from './seconds.pipe';
 import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
+import { SnakePipe } from './snake.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
     UberPricesComponent,
     SecondsPipe,
     LyftPricesComponent,
+    SnakePipe,
   ],
   imports: [
     BrowserModule,

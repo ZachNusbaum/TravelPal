@@ -11,16 +11,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchFormComponent implements OnInit {
   model = new PlacesQuery('');
   results = null;
+  submitted: boolean;
+
   @Output() populated = new EventEmitter();
 
   constructor(private geocoder: GeocodingService, private places: GooglePlacesService) { }
 
   ngOnInit() {
+    this.model.address = window.localStorage.getItem('start');
   }
 
   onSubmit() {
+    this.submitted = true;
     let coords;
     this.geocoder.geocodeAddress(this.model.address).subscribe((response: any) => {
+      window.localStorage.setItem('start', this.model.address);
       coords = response.results[0].geometry.location;
       console.log(coords);
       this.places.placesNear(coords).subscribe((placesResponse: any) => {
