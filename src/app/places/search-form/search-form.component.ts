@@ -14,6 +14,32 @@ export class SearchFormComponent implements OnInit {
   submitted: boolean;
   finished: boolean;
 
+  place_types = [
+    {name: 'Point of Interest (general)', value: 'point_of_interest'},
+    {name: 'Restaurant', value: 'restaurant'},
+    {name: 'Bar', value: 'bar'},
+    {name: 'Airport', value: 'airport'},
+    {name: 'Amusement Park', value: 'amusement_park'},
+    {name: 'Campground', value: 'campground'},
+    {name: 'Car Dealer', value: 'car_dealer'},
+    {name: 'Car Repair', value: 'car_repair'},
+    {name: 'Casino', value: 'casino'},
+    {name: 'Convenience Store', value: 'convenience_store'},
+    {name: 'Doctor', value: 'doctor'},
+    {name: 'Gas Station', value: 'gas_station'},
+    {name: 'Library', value: 'library'},
+    {name: 'Lodging', value: 'lodging'},
+    {name: 'Museum', value: 'museum'},
+    {name: 'Night Club', value: 'night_club'},
+    {name: 'Park', value: 'park'},
+    {name: 'Parking', value: 'parking'},
+    {name: 'Shopping Mall', value: 'shopping_mall'},
+    {name: 'Stadium', value: 'stadium'},
+    {name: 'Supermarket', value: 'supermarket'},
+    {name: 'Veterinarian', value: 'veterinary_care'},
+    {name: 'Zoo', value: 'zoo'}
+  ];
+
   @Output() populated = new EventEmitter();
 
   constructor(private geocoder: GeocodingService, private places: GooglePlacesService) { }
@@ -30,7 +56,7 @@ export class SearchFormComponent implements OnInit {
       window.localStorage.setItem('start', this.model.address);
       coords = response.results[0].geometry.location;
       console.log(coords);
-      this.places.placesNear(coords).subscribe((placesResponse: any) => {
+      this.places.placesNear(coords, this.model.type).subscribe((placesResponse: any) => {
         console.log(placesResponse);
         this.results = placesResponse.results;
         this.populated.emit(this.results);

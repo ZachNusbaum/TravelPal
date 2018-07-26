@@ -11,7 +11,7 @@ export class GooglePlacesService {
 
   constructor(private http: HttpClient, private geocoder: GeocodingService) { }
 
-  public placesNear(coords: LatLng) {
-    return this.http.get(`${this.base_uri}?location=${coords.lat},${coords.lng}&type=point_of_interest`);
+  public placesNear(coords: LatLng, type: string) {
+    return this.http.get(`${this.base_uri}?location=${coords.lat},${coords.lng}&type=${type}`);
   }
 }
