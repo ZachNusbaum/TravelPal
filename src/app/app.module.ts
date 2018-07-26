@@ -1,3 +1,4 @@
+import { PlacesModule } from './places/places.module';
 import { GeocodingService } from './geocoding.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,7 +33,8 @@ import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PlacesModule
   ],
   providers: [GeocodingService, UberService],
   bootstrap: [AppComponent]
