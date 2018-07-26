@@ -39,4 +39,12 @@ export class SearchFormComponent implements OnInit {
     });
   }
 
+  clearForm() {
+    const form = document.forms[0];
+    window.localStorage.removeItem('start');
+    window.localStorage.removeItem('end');
+    form.reset();
+    return false;
+  }
+
 }

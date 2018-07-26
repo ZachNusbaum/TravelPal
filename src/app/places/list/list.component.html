@@ -3,13 +3,15 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Vicinity</th>
+      <th>Rating</th>
+      <th>Location</th>
     </tr>
   </thead>
 
   <tbody>
       <tr *ngFor="let place of places">
         <td>{{place.name}}</td>
+        <td>{{place.rating}}</td>
         <td>{{place.vicinity}}</td>
       </tr>
     </tbody>
