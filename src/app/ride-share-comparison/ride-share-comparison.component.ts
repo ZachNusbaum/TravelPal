@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ride-share-comparison.component.css']
 })
 export class RideShareComparisonComponent implements OnInit {
+  // Indicates that both Uber and Lyft prices are ready.
   pricesReady: boolean;
 
   constructor() { }

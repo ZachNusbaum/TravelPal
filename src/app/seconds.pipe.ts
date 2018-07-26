@@ -5,9 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SecondsPipe implements PipeTransform {
 
+  // Takes a number of seconds, e.g. 90, and formats as 1m 30s.
   transform(value: number, args?: any): any {
-    let minutes = value / 60;
-    let seconds = value % 60;
+    const minutes = value / 60;
+    const seconds = value % 60;
     return `${minutes}m ${seconds}s`;
   }
 

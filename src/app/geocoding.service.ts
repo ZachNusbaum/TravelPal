@@ -11,10 +11,13 @@ export class GeocodingService {
 
   constructor(private http: HttpClient) { }
 
-  geocodeTrip(trip: Trip, start?: boolean) {
+  // This method takes a Trip (start_address, end_address) and geocodes the addresses using Google Geocoding API.
+  geocodeTrip(trip: Trip) {
+    // Since there are two addresses, the api needs to be called twice.
     const request1 = this.http.get(`${this.base_uri}?address=${trip.start_address}`);
     const request2 = this.http.get(`${this.base_uri}?address=${trip.end_address}`);
 
+    // Run both requests in parallel (forkJoin)
     return forkJoin([request1, request2]);
   }
 }

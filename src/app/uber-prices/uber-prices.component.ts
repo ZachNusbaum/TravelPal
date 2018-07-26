@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./uber-prices.component.css']
 })
 export class UberPricesComponent implements OnInit {
+  // This component accepts the JSON response from the Uber API as input (prices).
   @Input() prices;
 
   constructor() { }

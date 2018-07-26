@@ -9,13 +9,12 @@ import { UberService } from '../uber.service';
   styleUrls: ['./price-lists.component.css']
 })
 export class PriceListsComponent implements OnInit {
-  loading;
-
-  geocoded = false;
-  coords1: LatLng;
-  coords2: LatLng;
-  uberLoading = true;
-  uberPrices;
+  loading; // Is the app waiting for the geocode response?
+  geocoded = false; // Has the form been geocoded?
+  coords1: LatLng; // Coordinates for the start address
+  coords2: LatLng; // Coordinates for the destination address
+  uberLoading = true; // Waiting for the Uber API to respond
+  uberPrices; // List of service prices from the Uber API
 
   lyftLoading = true;
   lyftPrices;
@@ -25,28 +24,35 @@ export class PriceListsComponent implements OnInit {
   ngOnInit() {
   }
 
+  // This function gets called in response to the 'inputreceived' event emitted by the form.
   geocode(trip) {
-    this.loading = true;
-    this.uberLoading = true;
-    this.lyftLoading = true;
-    this.geocoded = false;
+    this.loading = true; // Geocoding is in progress
+    this.uberLoading = true; // Waiting for the Uber API
+    this.lyftLoading = true; // Waiting for the Lyft API
+    this.geocoded = false; // The addresses are not yet geocoded
     console.log('Geocoding...', trip);
-    this.geocoder.geocodeTrip(trip).subscribe((response: any) => {
-      this.coords1 = response[0].results[0].geometry.location;
-      this.coords2 = response[1].results[0].geometry.location;
-      this.loading = false;
+
+    // Send the start and destination addresses to the Google API, and subscribe to responses.
+    this.geocoder.geocodeTrip(trip).subscribe((responses: any) => {
+      // There are two responses, one for each request in the forkJoin.
+      this.coords1 = responses[0].results[0].geometry.location;
+      this.coords2 = responses[1].results[0].geometry.location;
+
+      this.loading = false; // At this point, the addresses are geocoded.
       this.geocoded = true;
       console.log('Geocoded: ', [this.coords1, this.coords2]);
+      // Send the geocoded addresses to the Uber API and subscribe to the response.
       this.uber.getPrices(this.coords1, this.coords2).subscribe((uberResponse: any) => {
-        this.uberLoading = false;
+        this.uberLoading = false; // Received the response from Uber API
+        // Sort the response by lowest price estimate
         let sorted = uberResponse.prices.sort((x, y) => { return x.low_estimate - y.low_estimate });
-        this.uberPrices = sorted;
+        this.uberPrices = sorted; // Set the list of Uber prices equal to the sorted response
         console.log('Uber success!', uberResponse);
-      }, error => {
+      }, error => { // Handle error response from Uber API
         alert('Uber API Error');
         console.log(error);
       });
-    }, error => {
+    }, error => { // Handle error response from Google API.
       alert('Error geocoding!');
       console.log(error);
     });

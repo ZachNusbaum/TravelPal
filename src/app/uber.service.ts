@@ -9,6 +9,7 @@ export class UberService {
 
   constructor(private http: HttpClient) {}
 
+  // Submits the geocoded addresses (lat, lng) to the Uber API.
   public getPrices(coords1, coords2) {
     return this.http.get(
       this.base_uri +
