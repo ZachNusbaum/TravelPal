@@ -1,7 +1,7 @@
 import { GooglePlacesService } from './../../google-places.service';
 import { GeocodingService } from './../../geocoding.service';
 import { PlacesQuery } from './places-query';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-places-search-form',
@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class SearchFormComponent implements OnInit {
   model = new PlacesQuery('');
   results = null;
+  @Output() populated = new EventEmitter();
 
   constructor(private geocoder: GeocodingService, private places: GooglePlacesService) { }
 
@@ -25,6 +26,7 @@ export class SearchFormComponent implements OnInit {
       this.places.placesNear(coords).subscribe((placesResponse: any) => {
         console.log(placesResponse);
         this.results = placesResponse.results;
+        this.populated.emit(this.results);
       });
     });
   }

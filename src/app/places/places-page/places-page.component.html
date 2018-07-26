@@ -1,1 +1,2 @@
-<app-places-search-form></app-places-search-form>
+<app-places-search-form (populated)="placesList.receiveData($event)"></app-places-search-form>
+<app-places-list #placesList></app-places-list>
