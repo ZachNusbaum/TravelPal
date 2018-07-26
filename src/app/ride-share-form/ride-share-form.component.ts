@@ -12,6 +12,8 @@ export class RideShareFormComponent implements OnInit {
   @Output() inputreceived = new EventEmitter<any>();
 
   onSubmit() {
+    window.localStorage.setItem('start', this.model.start_address);
+    window.localStorage.setItem('end', this.model.end_address);
     this.inputreceived.emit(this.model);
     this.submitted = true;
     return false;
@@ -21,6 +23,8 @@ export class RideShareFormComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.model);
+    this.model.start_address = window.localStorage.getItem('start');
+    this.model.end_address = window.localStorage.getItem('end');
   }
 
 }

@@ -1,3 +1,4 @@
+import { LatLng } from './../lat-lng';
 import { GeocodingService } from './../geocoding.service';
 import { Component, OnInit } from '@angular/core';
 import { UberService } from '../uber.service';
@@ -11,8 +12,8 @@ export class PriceListsComponent implements OnInit {
   loading;
 
   geocoded = false;
-  coords1;
-  coords2;
+  coords1: LatLng;
+  coords2: LatLng;
   uberLoading = true;
   uberPrices;
 
@@ -31,11 +32,11 @@ export class PriceListsComponent implements OnInit {
     this.geocoded = false;
     console.log('Geocoding...', trip);
     this.geocoder.geocodeTrip(trip).subscribe((response: any) => {
-      console.log('coords', response);
       this.coords1 = response[0].results[0].geometry.location;
       this.coords2 = response[1].results[0].geometry.location;
       this.loading = false;
       this.geocoded = true;
+      console.log('Geocoded: ', [this.coords1, this.coords2]);
       this.uber.getPrices(this.coords1, this.coords2).subscribe((uberResponse: any) => {
         this.uberLoading = false;
         let sorted = uberResponse.prices.sort((x, y) => { return x.low_estimate - y.low_estimate });
