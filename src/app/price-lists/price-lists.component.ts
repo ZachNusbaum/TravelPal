@@ -39,6 +39,7 @@ export class PriceListsComponent implements OnInit {
         this.uberPrices = sorted;
         console.log('Uber success!', uberResponse);
       }, error => {
+        alert('Uber API Error');
         console.log(error);
       });
     }, error => {

@@ -4,6 +4,7 @@
     <div class="uber">
         <div class="row">
             <div class="col-md-6">
+                <p class="lead" *ngIf="uberLoading">Loading Uber Prices...</p>
                 <app-uber-prices [prices]="uberPrices" *ngIf="!uberLoading"></app-uber-prices>
             </div>
         </div>

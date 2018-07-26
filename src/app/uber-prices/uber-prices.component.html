@@ -1,6 +1,7 @@
 <h4>Uber</h4>
 <hr>
-<table class="table table-sm table-striped table-hover">
+<p class="lead" *ngIf="!prices">Loading...</p>
+<table class="table table-sm table-striped table-hover" *ngIf="prices">
   <thead>
     <tr>
       <th>Service</th>
