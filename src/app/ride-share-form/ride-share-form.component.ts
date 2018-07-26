@@ -25,6 +25,9 @@ export class RideShareFormComponent implements OnInit {
     console.log(this.model);
     this.model.start_address = window.localStorage.getItem('start');
     this.model.end_address = window.localStorage.getItem('end');
+    if (!!this.model.start_address && !!this.model.end_address) {
+      this.onSubmit();
+    }
   }
 
 }
