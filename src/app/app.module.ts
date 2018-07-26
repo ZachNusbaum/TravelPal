@@ -13,6 +13,7 @@ import { RideShareFormComponent } from './ride-share-form/ride-share-form.compon
 import { PriceListsComponent } from './price-lists/price-lists.component';
 import { UberService } from './uber.service';
 import { UberPricesComponent } from './uber-prices/uber-prices.component';
+import { SecondsPipe } from './seconds.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UberPricesComponent } from './uber-prices/uber-prices.component';
     RideShareFormComponent,
     PriceListsComponent,
     UberPricesComponent,
+    SecondsPipe,
   ],
   imports: [
     BrowserModule,
