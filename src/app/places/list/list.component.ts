@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ListComponent implements OnInit {
   @Input() submitted;
+  @Input() finished;
   places;
   loaded = false;
 
@@ -16,6 +17,7 @@ export class ListComponent implements OnInit {
   }
 
   receiveData(event) {
+    this.loaded = false;
     this.places = event;
     this.loaded = true;
   }

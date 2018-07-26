@@ -12,6 +12,7 @@ export class SearchFormComponent implements OnInit {
   model = new PlacesQuery('');
   results = null;
   submitted: boolean;
+  finished: boolean;
 
   @Output() populated = new EventEmitter();
 
@@ -22,6 +23,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.finished = false;
     this.submitted = true;
     let coords;
     this.geocoder.geocodeAddress(this.model.address).subscribe((response: any) => {
@@ -32,6 +34,7 @@ export class SearchFormComponent implements OnInit {
         console.log(placesResponse);
         this.results = placesResponse.results;
         this.populated.emit(this.results);
+        this.finished = true;
       });
     });
   }

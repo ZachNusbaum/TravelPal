@@ -1,5 +1,5 @@
-<p class="lead" *ngIf="!loaded && submitted">Loading...</p>
-<table class="table table-bordered table-striped table-hover" *ngIf="loaded">
+<p class="lead" *ngIf="submitted && !finished">Loading...</p>
+<table class="table table-bordered table-striped table-hover" *ngIf="loaded && finished">
   <thead>
     <tr>
       <th>Name</th>
