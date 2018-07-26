@@ -20,4 +20,8 @@ export class GeocodingService {
     // Run both requests in parallel (forkJoin)
     return forkJoin([request1, request2]);
   }
+
+  geocodeAddress(address) {
+    return this.http.get(`${this.base_uri}?address=${address}`);
+  }
 }
