@@ -1,3 +1,4 @@
+import { PlacesModule } from './places/places.module';
 import { GeocodingService } from './geocoding.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { UberService } from './uber.service';
 import { UberPricesComponent } from './uber-prices/uber-prices.component';
 import { SecondsPipe } from './seconds.pipe';
 import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
+import { SnakePipe } from './snake.pipe';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
     UberPricesComponent,
     SecondsPipe,
     LyftPricesComponent,
+    SnakePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PlacesModule
   ],
   providers: [GeocodingService, UberService],
   bootstrap: [AppComponent]
