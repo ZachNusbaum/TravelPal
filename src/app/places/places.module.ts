@@ -1,3 +1,4 @@
+import { GooglePlacesService } from './../google-places.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,7 @@ import { PlacesPageComponent } from './places-page/places-page.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [SearchFormComponent, PlacesPageComponent]
+  declarations: [SearchFormComponent, PlacesPageComponent],
+  providers: [GooglePlacesService]
 })
 export class PlacesModule { }
