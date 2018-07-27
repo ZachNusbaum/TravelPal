@@ -5,6 +5,12 @@
 
 
 <dl *ngIf="!!data">
+    <agm-map 
+      [latitude]="data.geometry.location.lat"
+      [longitude]="data.geometry.location.lng"
+      [zoom]="14">
+        <agm-marker [latitude]="data.geometry.location.lat" [longitude]="data.geometry.location.lng"></agm-marker>
+    </agm-map>
   <dt>Address</dt>
   <dd [innerHTML]="data.adr_address"></dd>
 

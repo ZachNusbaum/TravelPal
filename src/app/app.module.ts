@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core'; // Angular Google Maps (Source: https://angular-maps.com/)
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,14 +30,17 @@ import { SnakePipe } from './snake.pipe';
     UberPricesComponent,
     SecondsPipe,
     LyftPricesComponent,
-    SnakePipe,
+    SnakePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    PlacesModule
+    PlacesModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAUS_9LDubZs79TSZQ0jsyghykkpscT5pk'
+    })
   ],
   providers: [GeocodingService, UberService],
   bootstrap: [AppComponent]
