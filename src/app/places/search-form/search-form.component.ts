@@ -9,11 +9,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
-  model = new PlacesQuery('');
-  results = null;
-  submitted: boolean;
-  finished: boolean;
+  model = new PlacesQuery(''); // Object has methods for each form field
+  results = null; // Search results.
+  submitted: boolean; // Has the form been submitted?
+  finished: boolean; // Are all requests finished?
 
+  // The options for the select-one dropdown on the Places page
+  // are populated from this array.
   place_types = [
     {name: 'Point of Interest (general)', value: 'point_of_interest'},
     {name: 'Restaurant', value: 'restaurant'},
@@ -40,12 +42,12 @@ export class SearchFormComponent implements OnInit {
     {name: 'Zoo', value: 'zoo'}
   ];
 
-  @Output() populated = new EventEmitter();
+  @Output() populated = new EventEmitter(); // Custom event that is emitted when the results are received.
 
   constructor(private geocoder: GeocodingService, private places: GooglePlacesService) { }
 
   ngOnInit() {
-    this.model.address = window.localStorage.getItem('start');
+    this.model.address = window.localStorage.getItem('start'); // Set the input value from localStorage.
   }
 
   onSubmit() {

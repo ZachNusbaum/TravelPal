@@ -8,21 +8,24 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ListComponent implements OnInit {
   @Input() submitted;
   @Input() finished;
-  places;
-  loaded = false;
-  coords;
-  bounds;
+  places; // Variable that holds the search results once received.
+  loaded = false; // Is the places variable populated?
+  coords; // Lat,Lng coordinates for the submitted address.
+  bounds; // (Not used) The Lat,Lng boundaries for the submitted address.
   constructor() { }
 
   ngOnInit() {
   }
 
   receiveData(event) {
-    this.loaded = false;
-    this.places = event[0];
-    this.loaded = true;
-    this.coords = event[1].results[0];
-    this.bounds = {north: this.coords.geometry.bounds.northeast.lat, east: this.coords.geometry.bounds.northeast.lng, south: this.coords.geometry.bounds.southwest.lat, west: this.coords.geometry.bounds.southwest.lng};
+    this.loaded = false; // New address submitted, data is now stale (not loaded).
+    this.places = event[0]; // Replace the old search results with the new.
+    this.loaded = true; // Data is now loaded again
+    this.coords = event[1].results[0]; // Save the geocoded address.
+    this.bounds = {north: this.coords.geometry.bounds.northeast.lat,
+      east: this.coords.geometry.bounds.northeast.lng,
+      south: this.coords.geometry.bounds.southwest.lat,
+      west: this.coords.geometry.bounds.southwest.lng};
     console.log('COORDS ', this.coords);
   }
 
