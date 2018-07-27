@@ -21,7 +21,7 @@
   <dd>{{data.rating}}</dd>
 
   <dt *ngIf="data.opening_hours">Hours</dt>
-  <dd>
+  <dd *ngIf="data.opening_hours">
     <ul>
       <li *ngFor="let hour of data.opening_hours.weekday_text">{{hour}}</li>
     </ul>
