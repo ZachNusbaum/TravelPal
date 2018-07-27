@@ -59,7 +59,7 @@ export class SearchFormComponent implements OnInit {
       this.places.placesNear(coords, this.model.type).subscribe((placesResponse: any) => {
         console.log(placesResponse);
         this.results = placesResponse.results;
-        this.populated.emit(this.results);
+        this.populated.emit([this.results, response]);
         this.finished = true;
       });
     });

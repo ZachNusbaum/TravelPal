@@ -1,4 +1,16 @@
 <p class="lead" *ngIf="submitted && !finished">Loading...</p>
+
+<agm-map [latitude]="coords.geometry.location.lat"
+         [longitude]="coords.geometry.location.lng"
+         
+         [zoom] = "12"
+         *ngIf="loaded && finished">
+
+         <agm-marker *ngFor="let place of places" [latitude]="place.geometry.location.lat" [longitude]="place.geometry.location.lng">
+            <agm-info-window>{{place.name}}</agm-info-window>
+         </agm-marker>>
+</agm-map>
+
 <table class="table table-bordered table-striped table-hover" *ngIf="loaded && finished">
   <thead>
     <tr>

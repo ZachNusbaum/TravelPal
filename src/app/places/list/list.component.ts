@@ -10,7 +10,8 @@ export class ListComponent implements OnInit {
   @Input() finished;
   places;
   loaded = false;
-
+  coords;
+  bounds;
   constructor() { }
 
   ngOnInit() {
@@ -18,8 +19,11 @@ export class ListComponent implements OnInit {
 
   receiveData(event) {
     this.loaded = false;
-    this.places = event;
+    this.places = event[0];
     this.loaded = true;
+    this.coords = event[1].results[0];
+    this.bounds = {north: this.coords.geometry.bounds.northeast.lat, east: this.coords.geometry.bounds.northeast.lng, south: this.coords.geometry.bounds.southwest.lat, west: this.coords.geometry.bounds.southwest.lng};
+    console.log('COORDS ', this.coords);
   }
 
 }
