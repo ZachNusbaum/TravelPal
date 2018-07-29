@@ -8,6 +8,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { PlacesPageComponent } from './places-page/places-page.component';
 import { ListComponent } from './list/list.component';
 import { PlaceDetailComponent } from './place-detail/place-detail.component';
+import { HotTableModule } from '@handsontable-pro/angular';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { PlaceDetailComponent } from './place-detail/place-detail.component';
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAUS_9LDubZs79TSZQ0jsyghykkpscT5pk'
-    })
+    }),
+    HotTableModule
   ],
   declarations: [SearchFormComponent, PlacesPageComponent, ListComponent, PlaceDetailComponent],
   providers: [GooglePlacesService]
