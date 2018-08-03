@@ -50,6 +50,7 @@ export class SearchFormComponent implements OnInit {
     this.model.address = window.localStorage.getItem('start'); // Set the input value from localStorage.
   }
 
+  // This runs when the form is submitted.
   onSubmit() {
     this.finished = false;
     this.submitted = true;
@@ -67,6 +68,7 @@ export class SearchFormComponent implements OnInit {
     });
   }
 
+  // Clears the form and the data in localStorage.
   clearForm() {
     const form = document.forms[0];
     window.localStorage.removeItem('start');

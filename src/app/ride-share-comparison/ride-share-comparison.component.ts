@@ -12,18 +12,14 @@ export class RideShareComparisonComponent implements OnInit {
   // Indicates that both Uber and Lyft prices are ready.
   pricesReady: boolean;
   userAddress: string;
+  // variable rideShareForm references the actual HTML form.
   @ViewChild(RideShareFormComponent) rideShareForm: RideShareFormComponent;
 
   constructor(private rg: ReverseGeocodeService) { }
 
   ngOnInit() {
     this.getCurrentPosition();
-    console.log(this.rideShareForm);
-  }
-
-
-  positionError(error) {
-    console.log(error);
+    console.log(this.rideShareForm); // TODO: Remove this.
   }
 
   getCurrentPosition() {
