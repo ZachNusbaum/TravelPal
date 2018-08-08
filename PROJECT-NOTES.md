@@ -5,6 +5,8 @@ Zach Nusbaum
 
 ## Comments about angular:
 
+* !! Because of CORS, app will only run on http://localhost:4200 or https://zachdn.us unless you replace API Keys with your own.
+
 * All of the code that I wrote lives in the [```./src/app```](/src/app) directory.
 
 * ```./src/app/*.service.rs``` files define the methods used to access the different API endpoints.
