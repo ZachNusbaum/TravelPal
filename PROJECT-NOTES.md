@@ -5,19 +5,19 @@ Zach Nusbaum
 
 ## Comments about angular:
 
-* All of the code that I wrote lives in the ```./src/app``` directory.
+* All of the code that I wrote lives in the [```./src/app```](/src/app) directory.
 
 * ```./src/*.service.rs``` files define the methods used to access the different API endpoints.
 
-* Global CSS styles are in ```./src/styles.css```
+* Global CSS styles are in [```./src/styles.css```](/src/styles.css)
 
-* Each sub-directory of ```./src/app``` is a component. Inside of each component folder is a typescript file, and html file, and a css file.
+* Each sub-directory of [```./src/app```](/src/app) is a component. Inside of each component folder is a typescript file, and html file, and a css file.
 
 * To run/compile the project, make sure you have NPM and Angular CLI (v6) installed.
 
 * Run the project locally by opening the folder with the command line and typing: ```ng serve --open```
 
-* Compile the project by running ```ng build --prod```. The compiled project will be found inside of the ```./dist``` directory.
+* Compile the project by running ```ng build --prod```. The compiled project will be found inside of the [```./dist```](/dist) directory.
 
 ## What I would have done differently
 
