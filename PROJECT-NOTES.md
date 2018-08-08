@@ -25,3 +25,5 @@ E.g. i would have placed ```app/lyft-prices```, ```app/price-lists```, ```app/ub
 ## Things to still do:
 
 * Cache API responses
+
+![Ride Share Component Diagram](/ride-share-diagram.png)
