@@ -17,28 +17,30 @@ import { UberService } from './uber.service';
 import { UberPricesComponent } from './uber-prices/uber-prices.component';
 import { SecondsPipe } from './seconds.pipe';
 import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
-import { SnakePipe } from './snake.pipe';
+
+// This is the root module for the entire app.
+// You must declare all components and other modules that you wish to use
+// before they can be used.
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuBarComponent,
-    HomepageComponent,
-    RideShareComparisonComponent,
-    RideShareFormComponent,
-    PriceListsComponent,
-    UberPricesComponent,
-    SecondsPipe,
-    LyftPricesComponent,
-    SnakePipe
+    AppComponent, // The root component for the app
+    MenuBarComponent, // The bootstrap menubar
+    HomepageComponent, // The homepage
+    RideShareComparisonComponent, // The ride share comparison page (main container)
+    RideShareFormComponent, // The form displayed on the ride share comparison page
+    PriceListsComponent, // Contains the two prices list components (Uber, Lyft).
+    UberPricesComponent, // Displays Uber Prices
+    SecondsPipe, // Formats the duration (seconds -> #m #s)
+    LyftPricesComponent, // Displays Lyft Prices
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    PlacesModule,
-    AgmCoreModule.forRoot({
+    BrowserModule, // Required. Imported by default.
+    AppRoutingModule, // Import the routes (see ./src/app/app-routing.module.ts)
+    FormsModule, // Provides angular form validations, and other methods for forms.
+    HttpClientModule, // Used for connecting to the various APIs
+    PlacesModule, // The module that contains the components for the Places feature.
+    AgmCoreModule.forRoot({ // Angular components for displaying Google Maps.
       apiKey: 'AIzaSyAUS_9LDubZs79TSZQ0jsyghykkpscT5pk'
     })
   ],

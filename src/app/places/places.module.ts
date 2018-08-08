@@ -12,15 +12,17 @@ import { HotTableModule } from '@handsontable-pro/angular';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    AppRoutingModule,
-    AgmCoreModule.forRoot({
+    CommonModule, // Required.
+    FormsModule, // Form validations and other form methods.
+    AppRoutingModule, // Required because this module needs access to the URL params.
+    AgmCoreModule.forRoot({ // Angular components for displaying Google Maps.
       apiKey: 'AIzaSyAUS_9LDubZs79TSZQ0jsyghykkpscT5pk'
     }),
-    HotTableModule
+    HotTableModule // External library for displaying data as a table. (not used)
   ],
+  // Declare the components to be used within the module.
   declarations: [SearchFormComponent, PlacesPageComponent, ListComponent, PlaceDetailComponent],
-  providers: [GooglePlacesService]
+  providers: [GooglePlacesService], // List any dependencies (services) to be injected.
+  exports: [] // List any components to be exported. (Exported components can be used from outside the module)
 })
 export class PlacesModule { }

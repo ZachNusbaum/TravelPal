@@ -9,6 +9,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 export class GeocodingService {
   base_uri = 'https://zachdn.us/civicz/api/geocoding.php';
 
+  // Inject the HttpClient.
   constructor(private http: HttpClient) { }
 
   // This method takes a Trip (start_address, end_address) and geocodes the addresses using Google Geocoding API.

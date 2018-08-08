@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+// A pipe is a class with a method that transforms an input for display on the page.
+// This pipe is used to format the estimated duration of each ride.
 @Pipe({
   name: 'seconds'
 })

@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LyftService {
   base_uri = 'https://zachdn.us/rides/lyft.php';
 
+  // Inject the HttpClient.
   constructor(private http: HttpClient) { }
 
   // Gets the current service information from the Lyft API.
