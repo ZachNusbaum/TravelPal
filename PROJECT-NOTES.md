@@ -7,6 +7,8 @@ Zach Nusbaum
 
 * All of the code that I wrote lives in the ```./src/app``` directory.
 
+* ```./src/*.service.rs``` files define the methods used to access the different API endpoints.
+
 * Global CSS styles are in ```./src/styles.css```
 
 * Each sub-directory of ```./src/app``` is a component. Inside of each component folder is a typescript file, and html file, and a css file.

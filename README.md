@@ -2,15 +2,15 @@
 
 ## [Click Here](/PROJECT-NOTES.md) FOR PROJECT NOTES.
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+
 ## IMPORTANT INFO RE: CORS
 
 THE APP WILL ONLY RUN CORRECTLY ON THESE DOMAINS DUE TO CORS:
 
 localhost:4200, zachdn.us, mm214.com; 
 
-IF YOU WISH TO RUN THIS APP ON A DIFFERENT DOMAIN, EDIT THE API ENDPOINTS ON THE ./src/app/*.service.ts files.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+IF YOU WISH TO RUN THIS APP ON A DIFFERENT DOMAIN, EDIT THE API ENDPOINTS ON THE ```./src/app/*.service.ts``` files.
 
 ## Development server
 
