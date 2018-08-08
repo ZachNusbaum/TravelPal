@@ -25,6 +25,7 @@ export class SearchFormComponent implements OnInit {
     {name: 'Campground', value: 'campground'},
     {name: 'Car Dealer', value: 'car_dealer'},
     {name: 'Car Repair', value: 'car_repair'},
+    {name: 'Car Wash', value: 'car_wash'},
     {name: 'Casino', value: 'casino'},
     {name: 'Convenience Store', value: 'convenience_store'},
     {name: 'Doctor', value: 'doctor'},
