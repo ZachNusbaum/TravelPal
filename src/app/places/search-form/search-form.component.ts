@@ -69,7 +69,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   // Clears the form and the data in localStorage.
-  clearForm() {
+  clearForm(): boolean {
     const form = document.forms[0];
     window.localStorage.removeItem('start');
     window.localStorage.removeItem('end');
