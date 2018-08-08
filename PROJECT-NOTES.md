@@ -7,7 +7,7 @@ Zach Nusbaum
 
 * All of the code that I wrote lives in the [```./src/app```](/src/app) directory.
 
-* ```./src/*.service.rs``` files define the methods used to access the different API endpoints.
+* ```./src/app/*.service.rs``` files define the methods used to access the different API endpoints.
 
 * Global CSS styles are in [```./src/styles.css```](/src/styles.css)
 
@@ -17,7 +17,7 @@ Zach Nusbaum
 
 * Run the project locally by opening the folder with the command line and typing: ```ng serve --open```
 
-* Compile the project by running ```ng build --prod```. The compiled project will be found inside of the [```./dist```](/dist) directory.
+* Compile the project by running ```ng build --prod```. The compiled project will be found inside of the ```./dist``` directory.
 
 ## What I would have done differently
 
@@ -28,4 +28,12 @@ E.g. i would have placed ```app/lyft-prices```, ```app/price-lists```, ```app/ub
 
 * Cache API responses
 
-![Ride Share Component Diagram](/ride-share-diagram.png)
+## Diagrams
+
+__Ride Share Comparison Feature__
+
+![Ride Share Feature Diagram](/ride-share-diagram.png)
+
+__Places Feature__
+
+![Places Feature Diagram](/places-diagram.png)
