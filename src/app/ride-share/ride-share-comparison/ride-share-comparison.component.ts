@@ -1,6 +1,6 @@
-import { LatLng } from './../lat-lng';
+import { LatLng } from './../../lat-lng';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ReverseGeocodeService } from '../reverse-geocode.service';
+import { ReverseGeocodeService } from './../../reverse-geocode.service';
 import { RideShareFormComponent } from '../ride-share-form/ride-share-form.component';
 
 @Component({
