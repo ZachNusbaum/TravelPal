@@ -7,10 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LyftPricesComponent implements OnInit {
   // Accepts the list of services prices as input
-  @Input() prices;
+  @Input() prices: any;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

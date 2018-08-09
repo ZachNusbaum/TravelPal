@@ -8,16 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ListComponent implements OnInit {
   @Input() submitted;
   @Input() finished;
-  places; // Variable that holds the search results once received.
-  loaded = false; // Is the places variable populated?
-  coords; // Lat,Lng coordinates for the submitted address.
-  bounds; // (Not used) The Lat,Lng boundaries for the submitted address.
+  places: any[]; // Variable that holds the search results once received.
+  loaded: boolean = false; // Is the places variable populated?
+  coords: any; // Lat,Lng coordinates for the submitted address.
+  bounds: any; // (Not used) The Lat,Lng boundaries for the submitted address.
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  receiveData(event) {
+  receiveData(event): void {
     this.loaded = false; // New address submitted, data is now stale (not loaded).
     this.places = event[0]; // Replace the old search results with the new.
     this.loaded = true; // Data is now loaded again

@@ -8,7 +8,7 @@ import { Trip } from './../trip';
 })
 export class RideShareFormComponent implements OnInit {
   // Setup a model that represents the fields of the form
-  model = new Trip();
+  model: Trip = new Trip();
 
   // Indicates if the form has been submitted or not.
   submitted = false;
@@ -17,7 +17,7 @@ export class RideShareFormComponent implements OnInit {
   @Output() inputreceived = new EventEmitter<any>();
 
   // Function that gets called when the form is submitted
-  onSubmit() {
+  onSubmit(): boolean {
     // Save the addresses to localStorage
     window.localStorage.setItem('start', this.model.start_address);
     window.localStorage.setItem('end', this.model.end_address);
@@ -31,7 +31,7 @@ export class RideShareFormComponent implements OnInit {
   }
 
   // Function that gets called when clicking the clear button.
-  clearAddresses() {
+  clearAddresses(): boolean {
     // Remove the addresses from localStorage.
     window.localStorage.removeItem('start');
     window.localStorage.removeItem('end');
@@ -43,7 +43,7 @@ export class RideShareFormComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void | boolean {
     console.log(this.model);
     // Populate the form fields from localStorage.
     this.model.start_address = window.localStorage.getItem('start');

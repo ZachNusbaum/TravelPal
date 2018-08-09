@@ -19,12 +19,12 @@ export class RideShareComparisonComponent implements OnInit {
   constructor(private rg: ReverseGeocodeService) { }
 
   // ngOnInit() runs every time the component loads.
-  ngOnInit() {
+  ngOnInit(): void | boolean {
     this.getCurrentPosition();
   }
 
   // Get the user's current posiiton
-  getCurrentPosition() {
+  getCurrentPosition(): void | boolean {
     // If a start address already exists in localStorage, don't run the rest of the function.
     if (localStorage.getItem('start')) { return true; }
     // if geolocation is available...

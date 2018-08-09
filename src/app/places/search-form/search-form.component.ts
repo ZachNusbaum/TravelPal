@@ -9,8 +9,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
-  model = new PlacesQuery(''); // Object has methods for each form field
-  results = null; // Search results.
+  model: PlacesQuery = new PlacesQuery(''); // Object has methods for each form field
+  results: any = null; // Search results.
   submitted: boolean; // Has the form been submitted?
   finished: boolean; // Are all requests finished?
 
@@ -47,12 +47,12 @@ export class SearchFormComponent implements OnInit {
 
   constructor(private geocoder: GeocodingService, private places: GooglePlacesService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.model.address = window.localStorage.getItem('start'); // Set the input value from localStorage.
   }
 
   // This runs when the form is submitted.
-  onSubmit() {
+  onSubmit(): void {
     this.finished = false;
     this.submitted = true;
     let coords;

@@ -10,23 +10,23 @@ import { UberService } from '../uber.service';
   styleUrls: ['./price-lists.component.css']
 })
 export class PriceListsComponent implements OnInit {
-  loading; // Is the app waiting for the geocode response?
+  loading: boolean; // Is the app waiting for the geocode response?
   geocoded = false; // Has the form been geocoded?
   coords1: LatLng; // Coordinates for the start address
   coords2: LatLng; // Coordinates for the destination address
   uberLoading = true; // Waiting for the Uber API to respond
-  uberPrices; // List of service prices from the Uber API
+  uberPrices: any[]; // List of service prices from the Uber API
 
   lyftLoading = true;
-  lyftPrices;
+  lyftPrices: any[];
 
   constructor(private geocoder: GeocodingService, private uber: UberService, private lyft: LyftService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // This function gets called in response to the 'inputreceived' event emitted by the form.
-  geocode(trip) {
+  geocode(trip): void | boolean {
     this.loading = true; // Geocoding is in progress
     this.uberLoading = true; // Waiting for the Uber API
     this.lyftLoading = true; // Waiting for the Lyft API
@@ -38,7 +38,7 @@ export class PriceListsComponent implements OnInit {
       // There are two responses, one for each request in the forkJoin.
       this.coords1 = responses[0].results[0].geometry.location;
       this.coords2 = responses[1].results[0].geometry.location;
-      let dist = this.distance(this.coords1.lat, this.coords1.lng, this.coords2.lat, this.coords2.lng, 'M');
+      const dist = this.distance(this.coords1.lat, this.coords1.lng, this.coords2.lat, this.coords2.lng, 'M');
       if ( dist > 100 ) { alert('Error: Addresses are more than 100 miles apart.'); this.loading = false; return false; }
       this.loading = false; // At this point, the addresses are geocoded.
       this.geocoded = true;
@@ -59,7 +59,7 @@ export class PriceListsComponent implements OnInit {
       this.lyft.getEstimates(this.coords1, this.coords2).subscribe((lyftResponse: any) => {
         this.lyftLoading = false; // Received the response from Lyft API
         // Sort the response by lowest price estimate
-        let sorted = lyftResponse.cost_estimates.sort((x, y) => { x.estimated_cost_cents_min - y.estimated_cost_cents_min });
+        let sorted: any[] = lyftResponse.cost_estimates.sort((x, y) => { x.estimated_cost_cents_min - y.estimated_cost_cents_min });
         this.lyftPrices = sorted; // Set the list of Lyft prices equal to the sorted response
         console.log('Lyft success!', this.lyftPrices);
       }, error => { // Handle error response from Lyft API.
@@ -101,7 +101,7 @@ export class PriceListsComponent implements OnInit {
   //:::                                                                         :::
   //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-  distance(lat1, lon1, lat2, lon2, unit) {
+  distance(lat1, lon1, lat2, lon2, unit): number {
     let radlat1 = Math.PI * lat1/180;
     let radlat2 = Math.PI * lat2/180;
     let theta = lon1-lon2;

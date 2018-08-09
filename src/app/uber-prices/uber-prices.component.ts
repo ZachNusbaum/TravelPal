@@ -7,11 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UberPricesComponent implements OnInit {
   // This component accepts the JSON response from the Uber API as input (prices).
-  @Input() prices;
+  @Input() prices: any[];
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 

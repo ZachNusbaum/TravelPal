@@ -16,7 +16,7 @@ export class PlaceDetailComponent implements OnInit {
   // Data about the place.
   data = null;
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Each time the component is loaded, reset the data.
     this.data = null;
     // Get the parameters from

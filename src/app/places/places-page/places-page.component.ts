@@ -14,12 +14,12 @@ export class PlacesPageComponent implements OnInit {
 
   constructor(private rg: ReverseGeocodeService) { }
 
-  ngOnInit() {
+  ngOnInit(): void | boolean {
     // Get the user's geolocation
     this.getLocation();
   }
 
-  getLocation() {
+  getLocation(): void | boolean {
     // If there is an existing address in localStorage, don't reverse geocode.
     if (localStorage.getItem('start')) { return true; }
     // If the geolocation is available
