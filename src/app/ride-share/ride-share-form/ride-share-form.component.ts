@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Trip } from './../trip';
+import { Trip } from './../../trip';
 
 @Component({
   selector: 'app-ride-share-form',

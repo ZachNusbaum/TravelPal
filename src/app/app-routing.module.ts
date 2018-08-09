@@ -1,6 +1,6 @@
 import { PlaceDetailComponent } from './places/place-detail/place-detail.component';
 import { PlacesPageComponent } from './places/places-page/places-page.component';
-import { RideShareComparisonComponent } from './ride-share-comparison/ride-share-comparison.component';
+import { RideShareComparisonComponent } from './ride-share/ride-share-comparison/ride-share-comparison.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

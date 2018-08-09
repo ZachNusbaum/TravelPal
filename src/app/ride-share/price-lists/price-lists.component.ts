@@ -1,8 +1,8 @@
-import { LyftService } from './../lyft.service';
-import { LatLng } from './../lat-lng';
-import { GeocodingService } from './../geocoding.service';
+import { LyftService } from './../../lyft.service';
+import { LatLng } from './../../lat-lng';
+import { GeocodingService } from './../../geocoding.service';
 import { Component, OnInit } from '@angular/core';
-import { UberService } from '../uber.service';
+import { UberService } from '../../uber.service';
 
 @Component({
   selector: 'app-price-lists',

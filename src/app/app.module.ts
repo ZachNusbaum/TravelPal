@@ -1,3 +1,5 @@
+import { PipesModule } from './pipes/pipes.module';
+import { RideShareModule } from './ride-share/ride-share.module';
 import { PlacesModule } from './places/places.module';
 import { GeocodingService } from './geocoding.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,13 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { RideShareComparisonComponent } from './ride-share-comparison/ride-share-comparison.component';
-import { RideShareFormComponent } from './ride-share-form/ride-share-form.component';
-import { PriceListsComponent } from './price-lists/price-lists.component';
+// import { RideShareComparisonComponent } from './ride-share/ride-share-comparison/ride-share-comparison.component';
+// import { RideShareFormComponent } from './ride-share-form/ride-share-form.component';
+// import { PriceListsComponent } from './price-lists/price-lists.component';
 import { UberService } from './uber.service';
-import { UberPricesComponent } from './uber-prices/uber-prices.component';
+// import { UberPricesComponent } from './uber-prices/uber-prices.component';
 import { SecondsPipe } from './seconds.pipe';
-import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
+// import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
 
 // This is the root module for the entire app.
 // You must declare all components and other modules that you wish to use
@@ -27,12 +29,12 @@ import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
     AppComponent, // The root component for the app
     MenuBarComponent, // The bootstrap menubar
     HomepageComponent, // The homepage
-    RideShareComparisonComponent, // The ride share comparison page (main container)
-    RideShareFormComponent, // The form displayed on the ride share comparison page
-    PriceListsComponent, // Contains the two prices list components (Uber, Lyft).
-    UberPricesComponent, // Displays Uber Prices
-    SecondsPipe, // Formats the duration (seconds -> #m #s)
-    LyftPricesComponent, // Displays Lyft Prices
+    // RideShareComparisonComponent, // The ride share comparison page (main container)
+    // RideShareFormComponent, // The form displayed on the ride share comparison page
+    // PriceListsComponent, // Contains the two prices list components (Uber, Lyft).
+    // UberPricesComponent, // Displays Uber Prices
+    // SecondsPipe, // Formats the duration (seconds -> #m #s)
+    // LyftPricesComponent, // Displays Lyft Prices
   ],
   imports: [
     BrowserModule, // Required. Imported by default.
@@ -42,9 +44,12 @@ import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
     PlacesModule, // The module that contains the components for the Places feature.
     AgmCoreModule.forRoot({ // Angular components for displaying Google Maps.
       apiKey: 'AIzaSyAUS_9LDubZs79TSZQ0jsyghykkpscT5pk'
-    })
+    }),
+    RideShareModule,
+    PipesModule.forRoot()
   ],
-  providers: [GeocodingService, UberService],
-  bootstrap: [AppComponent]
+  providers: [GeocodingService, UberService, SecondsPipe],
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }
