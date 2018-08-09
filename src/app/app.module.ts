@@ -12,13 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { HomepageComponent } from './homepage/homepage.component';
-// import { RideShareComparisonComponent } from './ride-share/ride-share-comparison/ride-share-comparison.component';
-// import { RideShareFormComponent } from './ride-share-form/ride-share-form.component';
-// import { PriceListsComponent } from './price-lists/price-lists.component';
 import { UberService } from './uber.service';
-// import { UberPricesComponent } from './uber-prices/uber-prices.component';
 import { SecondsPipe } from './seconds.pipe';
-// import { LyftPricesComponent } from './lyft-prices/lyft-prices.component';
 
 // This is the root module for the entire app.
 // You must declare all components and other modules that you wish to use
@@ -29,12 +24,6 @@ import { SecondsPipe } from './seconds.pipe';
     AppComponent, // The root component for the app
     MenuBarComponent, // The bootstrap menubar
     HomepageComponent, // The homepage
-    // RideShareComparisonComponent, // The ride share comparison page (main container)
-    // RideShareFormComponent, // The form displayed on the ride share comparison page
-    // PriceListsComponent, // Contains the two prices list components (Uber, Lyft).
-    // UberPricesComponent, // Displays Uber Prices
-    // SecondsPipe, // Formats the duration (seconds -> #m #s)
-    // LyftPricesComponent, // Displays Lyft Prices
   ],
   imports: [
     BrowserModule, // Required. Imported by default.
@@ -45,8 +34,8 @@ import { SecondsPipe } from './seconds.pipe';
     AgmCoreModule.forRoot({ // Angular components for displaying Google Maps.
       apiKey: 'AIzaSyAUS_9LDubZs79TSZQ0jsyghykkpscT5pk'
     }),
-    RideShareModule,
-    PipesModule.forRoot()
+    RideShareModule, // The moduel that contains the components for the ride share feature.
+    PipesModule.forRoot() // Module that exports the custom pipes I define.
   ],
   providers: [GeocodingService, UberService, SecondsPipe],
   bootstrap: [AppComponent],
