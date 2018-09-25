@@ -1,5 +1,5 @@
 # TravelPal
-
+__I PORTED THIS APP TO THE MEAN STACK, VIEW NEW REPO HERE: [TravelPal-MEAN](https://github.com/ZachNusbaum/TravelPal-MEAN)__
 ## [CLICK HERE](/PROJECT-NOTES.md) FOR PROJECT NOTES.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
